@@ -14,3 +14,8 @@ g.samples circle {
   fill: black;
   stroke: none;
 }
+
+g.lines line {
+  stroke: black;
+  stroke-width: 0.3;
+}
