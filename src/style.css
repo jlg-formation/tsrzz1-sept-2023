@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 svg {
   width: 50em;
   height: 30em;
@@ -18,4 +22,18 @@ g.samples circle {
 g.lines line {
   stroke: black;
   stroke-width: 0.3;
+}
+
+div.command {
+  width: 50em;
+  border: 0.1em solid black;
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+  padding: 0.5em;
+}
+
+div.command label {
+  display: flex;
+  flex-flow: column;
 }
