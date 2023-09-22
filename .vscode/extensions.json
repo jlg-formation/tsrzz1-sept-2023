@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "yatki.vscode-surround",
+    "oouo-diogo-perdigao.docthis",
+    "usernamehw.errorlens",
+    "xabikos.javascriptsnippets",
+    "whtouche.vscode-js-console-utils",
+    "esbenp.prettier-vscode",
+    "jock.svg",
+    "meganrogge.template-string-converter",
+    "aljazsim.tsco",
+    "celianriboulet.webvalidator"
+  ]
+}
