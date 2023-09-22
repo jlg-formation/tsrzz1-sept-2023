@@ -1,4 +1,4 @@
-import { samples, svgns, multiplicationFactor } from "./constants";
+import { svgns } from "./constants";
 import { Config } from "./interfaces/Config";
 import { querySelector, setAttribute } from "./misc/document";
 import { getAngle, getPointOnCircleFromAngle } from "./misc/math";
@@ -10,6 +10,8 @@ export class Board {
   };
 
   draw() {
+    querySelector("g.samples").innerHTML = "";
+    querySelector("g.lines").innerHTML = "";
     const { multiplicationFactor, samples } = this.config;
 
     // on trace les graduations
