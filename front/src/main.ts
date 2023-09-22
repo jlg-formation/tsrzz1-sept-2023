@@ -1,6 +1,6 @@
 import { Board } from "./Board";
 import { Command } from "./Command";
-import "./style.css";
+import "./style.scss";
 
 const config = { samples: 72, multiplicationFactor: 2 };
 
