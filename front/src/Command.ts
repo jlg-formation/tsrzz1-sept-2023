@@ -3,9 +3,11 @@ import { keys, querySelector } from "./misc/document";
 
 type Callback = (newConfig: Config) => void;
 
+const url = "http://localhost:3000/api/random-config";
+
 export class Command {
-  config: Config = { multiplicationFactor: 0, samples: 0 };
   callback: Callback = () => {};
+  config: Config = { multiplicationFactor: 0, samples: 0 };
 
   constructor() {
     this.render();
@@ -47,6 +49,24 @@ export class Command {
         });
       });
     }
+
+    this.setBtnAction();
+  }
+
+  setBtnAction() {
+    querySelector("div.command button.random").addEventListener(
+      "click",
+      async () => {
+        try {
+          console.log("click");
+          const response = await fetch(url);
+          const config: Config = await response.json();
+          this.setConfig(config);
+        } catch (err) {
+          console.log("err: ", err);
+        }
+      }
+    );
   }
 
   setConfig(config: Config) {
