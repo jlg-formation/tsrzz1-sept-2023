@@ -8,6 +8,7 @@ const url = "http://localhost:3000/api/random-config";
 export class Command {
   callback: Callback = () => {};
   config: Config = { multiplicationFactor: 0, samples: 0 };
+  isPlaying = false;
 
   constructor() {
     this.render();
@@ -30,6 +31,10 @@ export class Command {
       );
       sliderElt.value = "" + this.config[key];
     }
+
+    querySelector("div.command .play").innerHTML = this.isPlaying
+      ? "Pause"
+      : "Play";
   }
 
   setActions() {
@@ -67,6 +72,12 @@ export class Command {
         }
       }
     );
+
+    querySelector("div.command button.play").addEventListener("click", () => {
+      console.log("click");
+      this.isPlaying = !this.isPlaying;
+      this.render();
+    });
   }
 
   setConfig(config: Config) {
