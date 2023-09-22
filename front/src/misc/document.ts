@@ -25,3 +25,11 @@ export const setAttribute = (
 export const keys = <T extends object>(o: T): (keyof T)[] => {
   return Object.keys(o) as (keyof T)[];
 };
+
+export const sleep = (delay: number) => {
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, delay);
+  });
+};

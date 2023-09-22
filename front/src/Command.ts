@@ -1,5 +1,5 @@
 import { Config } from "./interfaces/Config";
-import { keys, querySelector } from "./misc/document";
+import { keys, querySelector, sleep } from "./misc/document";
 
 type Callback = (newConfig: Config) => void;
 
@@ -17,6 +17,20 @@ export class Command {
 
   onUpdate(callback: Callback) {
     this.callback = callback;
+  }
+
+  async play() {
+    while (this.isPlaying) {
+      await sleep(15);
+      const newMultiplicationFactor = +(
+        (this.config.multiplicationFactor + 0.01) %
+        100
+      ).toFixed(2);
+      this.setConfig({
+        ...this.config,
+        multiplicationFactor: newMultiplicationFactor,
+      });
+    }
   }
 
   render() {
@@ -77,6 +91,9 @@ export class Command {
       console.log("click");
       this.isPlaying = !this.isPlaying;
       this.render();
+      if (this.isPlaying) {
+        this.play();
+      }
     });
   }
 
